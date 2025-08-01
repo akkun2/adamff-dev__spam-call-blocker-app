@@ -80,6 +80,27 @@
 
     </PreferenceCategory>
 
+    <!-- Pattern Blocking -->
+    <PreferenceCategory
+        android:title="@string/pref_category_pattern_blocking"
+        app:iconSpaceReserved="false">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_enable_pattern_blocking"
+            android:summary="@string/pref_enable_pattern_blocking_summary"
+            android:title="@string/pref_enable_pattern_blocking_title"
+            app:iconSpaceReserved="false" />
+
+        <com.addev.listaspam.preferences.PatternListPreference
+            android:key="pref_pattern_list"
+            android:summary="@string/pref_pattern_list_summary"
+            android:title="@string/pref_pattern_list_title"
+            android:dialogMessage="@string/pref_pattern_list_example"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
     <!-- Other Blocking Options -->
     <PreferenceCategory
         android:title="@string/pref_category_other_options"

@@ -39,7 +39,6 @@ class SpamUtils {
 
     companion object {
         private const val SPAM_PREFS = "SPAM_PREFS"
-        private const val BLOCK_NUMBERS_KEY = "BLOCK_NUMBERS"
 
         object VerificationStatus {
             const val FAILED = 2
@@ -68,6 +67,54 @@ class SpamUtils {
 
             else -> null
         }
+    }
+
+    /**
+     * Checks if a number matches a pattern that may contain wildcards.
+     * Pattern examples:
+     * - +33162* (starts with +33162)
+     * - *98 (ends with 98)
+     * - 213*134 (starts with 213 and ends with 134)
+     * - *454* (contains 454 anywhere in between)
+     *
+     * @param number The phone number to check
+     * @param pattern The pattern to match against
+     * @return true if the number matches the pattern
+     */
+    private fun matchesPattern(number: String, pattern: String): Boolean {
+        if (pattern.isEmpty() || number.isEmpty()) return false
+
+        val parts = pattern.split("*")
+        // If there are no wildcards, do exact match
+        if (parts.size == 1) {
+            return number == pattern
+        }
+
+        var idx = 0
+        var currentIndex = 0
+
+        // If pattern starts with wildcard, skip empty prefix
+        if (parts.first().isNotEmpty()) {
+            if (!number.startsWith(parts.first())) return false
+            currentIndex += parts.first().length
+        }
+
+        // If pattern ends with wildcard, skip empty suffix
+        val lastIndex = parts.size - 1
+        if (parts.last().isNotEmpty()) {
+            if (!number.endsWith(parts.last())) return false
+        }
+
+        // Check all middle parts (must appear in order)
+        for (i in 1 until lastIndex) {
+            val part = parts[i]
+            if (part.isEmpty()) continue
+            val foundIdx = number.indexOf(part, currentIndex)
+            if (foundIdx == -1) return false
+            currentIndex = foundIdx + part.length
+        }
+
+        return true
     }
 
     /**
@@ -138,6 +185,20 @@ class SpamUtils {
                     callback
                 )
                 return@launch
+            }
+
+            if (isPatternBlockingEnabled(context)) {
+                val patterns = getBlockedPatterns(context)
+                if (patterns.any { matchesPattern(number, it) }) {
+                    handleSpamNumber(
+                        context,
+                        number,
+                        false,
+                        context.getString(R.string.block_pattern_match),
+                        callback
+                    )
+                    return@launch
+                }
             }
 
             if (

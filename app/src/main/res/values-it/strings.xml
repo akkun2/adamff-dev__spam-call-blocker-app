@@ -15,7 +15,6 @@
     <string name="blocked_text_format">%1$s (bloccato)</string>
     <string name="whitelisted_text_format">%1$s (lista bianca)</string>
     <string name="duration_label">Durata: %1$d secondi</string>
-    <string name="report_url_template">http://esempio.com/report?numero=%1$s</string>
     <string name="incoming_call_not_spam">La chiamata in arrivo non sembra essere spam</string>
     <string name="notification_channel_name">Spam Call Blocker</string>
     <string name="notification_title_spam_blocked">Chiamata bloccata: %1$s</string>
@@ -38,12 +37,13 @@
     <string name="pref_category_unknown_phone_api">Unknownphone API 🌐</string>
     <string name="pref_category_tellows_api">Tellows API 🌐</string>
     <string name="pref_category_truecaller_api">Truecaller API 🌐</string>
-    <string name="pref_category_scrapers_es">Scrapers 🇪🇸</string>
     <string name="pref_category_spam_filters">Filtri per i numeri di spam</string>
+    <string name="pref_category_pattern_blocking">" Blocco dei modelli"</string>
     <string name="pref_category_other_options">Altre opzioni di blocco</string>
     <string name="pref_category_notifications">Notifiche</string>
 
     <!-- General Blocking Settings -->
+    <string name="pref_pattern_list_example">Ad esempio: +33162* (inizia con), *98 (termina con), 213*134 (inizia e finisce con), *123* (contiene 123 in qualsiasi punto intermedio). Non aggiungere il prefisso telefonico ai numeri del tuo Paese.</string>
     <string name="pref_enable_blocking_title">Abilita blocco</string>
     <string name="pref_enable_blocking_summary">Abilita o disabilita la funzionalità di blocco delle chiamate</string>
 
@@ -67,16 +67,6 @@
 
     <string name="pref_filter_truecaller_api_country_title">Paese Truecaller API</string>
     <string name="pref_filter_truecaller_api_country_summary">Scegli il Paese in cui effettuare le ricerche nell\'API Truecaller (influisce sui risultati)</string>
-
-    <!-- Spam Number Filters -->
-    <string name="pref_filter_lista_spam_scraper_title">Scraper listaspam.com</string>
-    <string name="pref_filter_lista_spam_scraper_summary">(Deprecato) Blocca le chiamate dai numeri spam elencati sul sito listaspam.es</string>
-
-    <string name="pref_filter_responder_o_no_title">Scraper responderono.es</string>
-    <string name="pref_filter_responder_o_no_summary">Blocca le chiamate dai numeri spam elencati sul sito responderono.es</string>
-
-    <string name="pref_filter_cleverdialer_title">Scraper cleverdialer.es</string>
-    <string name="pref_filter_cleverdialer_summary">Blocca le chiamate dai numeri spam elencati sul sito cleverdialer.es</string>
 
     <!-- Other Blocking Options -->
     <string name="pref_block_non_contacts_title">Blocca Non Contatti</string>
@@ -115,6 +105,7 @@
     <string name="block_hidden_number">Numero nascosto</string>
     <string name="block_spam_number">Segnalato come spam</string>
     <string name="block_international_call">Chiamata internazionale</string>
+    <string name="block_pattern_match">Corrispondenza del modello</string>
     <string name="block_already_blocked_number">Numero bloccato</string>
     <string name="block_non_contact">Non è un contatto</string>
     <string name="export_config">Esporta impostazioni e liste</string>
@@ -162,4 +153,17 @@
     <!-- Update check preference -->
     <string name="pref_enable_update_check_title">Controlla automaticamente gli aggiornamenti</string>
     <string name="pref_enable_update_check_summary">Se disattivato, l\'app non cercherà automaticamente nuove versioni</string>
+
+    <!-- Donation Screen -->
+    <string name="donation_screen_title">Donazioni</string>
+    <string name="copy_address">Copia</string>
+    <string name="address_copied">Indirizzo copiato</string>
+    <string name="donation_help_development">Aiuta a supportare lo sviluppo e la manutenzione di questa app!</string>
+    <string name="donation_traditional_methods">Supporta tramite metodi tradizionali:</string>
+    <string name="donation_crypto_methods">Oppure, se preferisci, puoi donare con criptovalute:</string>
+    <string name="pref_enable_pattern_blocking_title">Abilita il blocco dei pattern</string>
+    <string name="pref_enable_pattern_blocking_summary">Blocca le chiamate che corrispondono a specifici schemi numerici</string>
+    <string name="pref_pattern_list_title">Elenco modelli</string>
+    <string name="pref_pattern_list_summary">Inserisci i modelli da bloccare (uno per riga)</string>
+    <string name="pref_pattern_list_error">Pattern non valido. Utilizzare solo numeri, + e *. I pattern non possono contenere **.</string>
 </resources>

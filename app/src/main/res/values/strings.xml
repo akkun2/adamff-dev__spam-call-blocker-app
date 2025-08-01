@@ -15,7 +15,6 @@
     <string name="blocked_text_format">%1$s (blocked)</string>
     <string name="whitelisted_text_format">%1$s (whitelist)</string>
     <string name="duration_label">Duration: %1$d seconds</string>
-    <string name="report_url_template">http://example.com/report?number=%1$s</string>
     <string name="incoming_call_not_spam">The incoming call appears not to be spam</string>
     <string name="notification_channel_name">Spam Call Blocker</string>
     <string name="notification_title_spam_blocked">Call blocked: %1$s</string>
@@ -38,10 +37,18 @@
     <string name="pref_category_unknown_phone_api">Unknownphone API 🌐</string>
     <string name="pref_category_tellows_api">Tellows API 🌐</string>
     <string name="pref_category_truecaller_api">Truecaller API 🌐</string>
-    <string name="pref_category_scrapers_es">Scrapers 🇪🇸</string>
     <string name="pref_category_spam_filters">Spam Number Filters</string>
+    <string name="pref_category_pattern_blocking">Pattern Blocking</string>
     <string name="pref_category_other_options">Other Blocking Options</string>
     <string name="pref_category_notifications">Notifications</string>
+
+    <!-- Pattern Blocking Settings -->
+    <string name="pref_enable_pattern_blocking_title">Enable Pattern Blocking</string>
+    <string name="pref_enable_pattern_blocking_summary">Block calls matching specific number patterns</string>
+    <string name="pref_pattern_list_title">Pattern List</string>
+    <string name="pref_pattern_list_summary">Enter patterns to block (one per line)</string>
+    <string name="pref_pattern_list_error">Invalid pattern. Use only numbers, +, and *. Patterns cannot contain **.</string>
+    <string name="pref_pattern_list_example">E.g.: +33162* (starts with), *98 (ends with), 213*134 (starts and ends with), *123* (contains 123 anywhere in between). Don\'t add phone number prefix for numbers in your country.</string>
 
     <!-- General Blocking Settings -->
     <string name="pref_enable_blocking_title">Enable Blocking</string>
@@ -67,16 +74,6 @@
 
     <string name="pref_filter_truecaller_api_country_title">Truecaller API Country</string>
     <string name="pref_filter_truecaller_api_country_summary">Select the country for searches in the Truecaller API (affects results)</string>
-
-    <!-- Spam Number Filters -->
-    <string name="pref_filter_lista_spam_scraper_title">listaspam.com Scraper</string>
-    <string name="pref_filter_lista_spam_scraper_summary">(Deprecated) Blocks calls from spam numbers listed on listaspam.es website</string>
-
-    <string name="pref_filter_responder_o_no_title">responderono.es Scraper</string>
-    <string name="pref_filter_responder_o_no_summary">Blocks calls from spam numbers listed on responderono.es website</string>
-
-    <string name="pref_filter_cleverdialer_title">cleverdialer.es Scraper</string>
-    <string name="pref_filter_cleverdialer_summary">Blocks calls from spam numbers listed on cleverdialer.es website</string>
 
     <!-- Other Blocking Options -->
     <string name="pref_block_non_contacts_title">Block Non-Contacts</string>
@@ -115,6 +112,7 @@
     <string name="block_hidden_number">Hidden number</string>
     <string name="block_spam_number">Reported as spam</string>
     <string name="block_international_call">International call</string>
+    <string name="block_pattern_match">Pattern match</string>
     <string name="block_already_blocked_number">Blocked number</string>
     <string name="block_non_contact">Not a contact</string>
     <string name="export_config">Export settings and lists</string>

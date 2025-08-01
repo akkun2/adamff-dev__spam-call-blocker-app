@@ -15,7 +15,6 @@
     <string name="blocked_text_format">%1$s (bloqueado)</string>
     <string name="whitelisted_text_format">%1$s (whitelist)</string>
     <string name="duration_label">Duración: %1$d segundos</string>
-    <string name="report_url_template">http://example.com/reportar?number=%1$s</string>
     <string name="incoming_call_not_spam">La llamada entrante parece que no es spam</string>
     <string name="notification_channel_name">Spam Call Blocker</string>
     <string name="notification_title_spam_blocked">Llamada bloqueada: %1$s</string>
@@ -38,10 +37,18 @@
     <string name="pref_category_unknown_phone_api">API Unknownphone 🌐</string>
     <string name="pref_category_tellows_api">API Tellows 🌐</string>
     <string name="pref_category_truecaller_api">API Truecaller 🌐</string>
-    <string name="pref_category_scrapers_es">Scrapers 🇪🇸</string>
     <string name="pref_category_spam_filters">Filtros de números de spam</string>
+    <string name="pref_category_pattern_blocking">Bloqueo por patrones</string>
     <string name="pref_category_other_options">Otras opciones de bloqueo</string>
     <string name="pref_category_notifications">Notificaciones</string>
+
+    <!-- Pattern Blocking Settings -->
+    <string name="pref_enable_pattern_blocking_title">Activar bloqueo por patrones</string>
+    <string name="pref_enable_pattern_blocking_summary">Bloquear llamadas que coincidan con patrones específicos</string>
+    <string name="pref_pattern_list_title">Lista de patrones</string>
+    <string name="pref_pattern_list_summary">Introduce los patrones a bloquear (uno por línea)</string>
+    <string name="pref_pattern_list_error">Patrón no válido. Usa solo números, "+", y "*".</string>
+    <string name="pref_pattern_list_example">Ejemplo: +33162* (empieza por), *98 (termina en), 213*134 (empieza y termina en), *123* (contiene 123 en cualquier parte en medio). No añadas el prefijo telefónico para números de tu país.</string>
 
     <!-- General Blocking Settings -->
     <string name="pref_enable_blocking_title">Activar bloqueo</string>
@@ -67,16 +74,6 @@
 
     <string name="pref_filter_truecaller_api_country_title">País API Truecaller</string>
     <string name="pref_filter_truecaller_api_country_summary">Seleccione el país para las búsquedas en la API de Truecaller (afecta a los resultados)</string>
-
-    <!-- Spam Number Filters -->
-    <string name="pref_filter_lista_spam_scraper_title">Scraper listaspam.com</string>
-    <string name="pref_filter_lista_spam_scraper_summary">(Obsoleto) Bloquea llamadas de números spam incluidos en la web listaspam.es</string>
-
-    <string name="pref_filter_responder_o_no_title">Scraper responderono.es</string>
-    <string name="pref_filter_responder_o_no_summary">Bloquea llamadas de números spam incluidos en la web responderono.es</string>
-
-    <string name="pref_filter_cleverdialer_title">Scraper cleverdialer.es</string>
-    <string name="pref_filter_cleverdialer_summary">Bloquea llamadas de números spam incluidos en la web cleverdialer.es</string>
 
     <!-- Other Blocking Options -->
     <string name="pref_block_non_contacts_title">Bloquear llamadas de desconocidos</string>
@@ -115,6 +112,7 @@
     <string name="block_spam_number">Reportado como spam</string>
     <string name="block_hidden_number">Número oculto</string>
     <string name="block_international_call">Llamada internacional</string>
+    <string name="block_pattern_match">Coincidencia de patrón</string>
     <string name="block_already_blocked_number">Número bloqueado</string>
     <string name="block_non_contact">No es un contacto</string>
     <string name="export_config">Exportar configuración y listas</string>

@@ -70,6 +70,21 @@ fun shouldFilterWithStirShaken(context: Context): Boolean =
 fun shouldMuteInsteadOfBlocking(context: Context): Boolean =
     getBooleanPref(context, "pref_mute_instead_of_block", false)
 
+fun isPatternBlockingEnabled(context: Context): Boolean =
+    getBooleanPref(context, "pref_enable_pattern_blocking", false)
+
+fun getBlockedPatterns(context: Context): Set<String> {
+    val patternsStr = getStringPref(context, "pref_pattern_list") ?: ""
+    return patternsStr.split("\n")
+        .map { it.trim() }
+        .filter { it.isNotEmpty() }
+        .toSet()
+}
+
+fun setBlockedPatterns(context: Context, patterns: Set<String>) {
+    setStringPref(context, "pref_pattern_list", patterns.joinToString("\n"))
+}
+
 /**
  * Saves a phone number as spam in SharedPreferences by adding it to the blocked numbers set.
  * Also removes the number from the whitelist if present.
