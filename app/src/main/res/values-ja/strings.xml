@@ -42,7 +42,7 @@
     <!-- Pattern Blocking Settings -->
     <string name="pref_enable_pattern_blocking_title">パターンブロックを有効化</string>
     <string name="pref_enable_pattern_blocking_summary">特定のパターンに一致する電話番号からの着信をブロックします</string>
-    <string name="pref_pattern_list_title">パターンの一覧</string>
+    <string name="pref_pattern_list_title">パターンリスト</string>
     <string name="pref_pattern_list_summary">ブロックするパターンを入力で設定します (一行ごと)</string>
     <string name="pref_pattern_list_error">無効なパターンです。数字、「+」と「*」のみを使用してください。パターンに「**」を含めることはできません。</string>
     <string name="pref_pattern_list_example">例: +33162* (先頭が始まる番号)、*98 (末尾が終わる番号)、213*134 (先頭の始まりと末尾の終わり)、*123* (123 を含む) など。お住まいの国の電話番号には、電話番号の接頭辞を追加しないでください。</string>
