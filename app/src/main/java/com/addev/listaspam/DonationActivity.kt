@@ -33,7 +33,6 @@ class DonationActivity : AppCompatActivity() {
         val addresses = mapOf(
             "Bitcoin" to "bc1qrcdyq2yjgv5alm9kky2e6vyfhnafn3wgd2gjls",
             "Ethereum" to "0x43b9649985d6789452abe23beb1eb610cee88817",
-            "Monero" to "43qZw2PJ6mS6G1RX63qXV6Lah7vpPHrqGDYotLkheL176CNtYei5anhjXgKDkhJMNx16WFGdtCycyCRSppwTyfeSSQHd42T",
             "Solana" to "4qK7eSQemRj85VY9CQp5XHRwX5fNjoSJ1ou4gmqk6jtM",
             "Litecoin" to "ltc1qp6mya23a73n36dc7r0tfwfphn2v53phmhen99j",
         )
