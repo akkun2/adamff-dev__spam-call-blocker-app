@@ -251,9 +251,9 @@ fun isNumberBlocked(context: Context, number: String): Boolean {
 
 fun isNumberWhitelisted(context: Context, number: String): Boolean {
     val sharedPreferences = context.getSharedPreferences(SPAM_PREFS, Context.MODE_PRIVATE)
-    val blockedNumbers = sharedPreferences.getStringSet(WHITELIST_NUMBERS_KEY, emptySet())
-    if (blockedNumbers != null) {
-        return blockedNumbers.contains(number)
+    val whitelistedNumbers = sharedPreferences.getStringSet(WHITELIST_NUMBERS_KEY, emptySet())
+    if (whitelistedNumbers != null) {
+        return whitelistedNumbers.contains(number)
     }
     return false
 }
