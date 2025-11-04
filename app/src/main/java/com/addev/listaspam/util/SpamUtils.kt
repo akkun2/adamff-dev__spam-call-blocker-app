@@ -162,13 +162,10 @@ class SpamUtils {
                 return@launch
             }
 
-            if (details != null) {
-                val isNumberInAgenda = isNumberInAgenda(details)
-
-                // Don't check number if is in contacts
-                if (isNumberInAgenda) {
-                    return@launch
-                }
+            // Don't check number if is in contacts
+            val isNumberInAgenda = isNumberInAgenda(context, number)
+            if (isNumberInAgenda) {
+                return@launch
             }
 
             if (shouldBlockNonContacts(context)) {
@@ -347,15 +344,42 @@ class SpamUtils {
      * Checks if a phone number exists in the device's contact agenda.
      *
      * This function determines whether a given phone number is associated with
-     * a contact stored in the user's address book by checking if the contact
-     * display name is available.
+     * a contact stored in the user's address book by querying the contacts database.
      *
-     * @param details The call/message details object containing contact information
-     * @return true if the number is found in the agenda (has a contact display name),
-     *         false otherwise
+     * @param context Context for accessing content resolver
+     * @param phoneNumber The phone number to check
+     * @return true if the number is found in the contacts, false otherwise
      */
-    private fun isNumberInAgenda(details: Call.Details): Boolean {
-        return details.getContactDisplayName() != null
+    private fun isNumberInAgenda(context: Context, phoneNumber: String): Boolean {
+        if (ActivityCompat.checkSelfPermission(
+                context,
+                Manifest.permission.READ_CONTACTS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            return false
+        }
+
+        val uri = Uri.withAppendedPath(
+            ContactsContract.PhoneLookup.CONTENT_FILTER_URI,
+            Uri.encode(phoneNumber)
+        )
+        
+        var cursor: Cursor? = null
+        try {
+            cursor = context.contentResolver.query(
+                uri,
+                arrayOf(ContactsContract.PhoneLookup.DISPLAY_NAME),
+                null,
+                null,
+                null
+            )
+            return cursor != null && cursor.moveToFirst()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return false
+        } finally {
+            cursor?.close()
+        }
     }
 
     // ...scraper logic removed...
