@@ -15,8 +15,8 @@ import javax.xml.parsers.DocumentBuilderFactory
  * Utility object for interacting with the UnknownPhone API to check if a phone number is marked as spam.
  */
 object ApiUtils {
-    private const val UNKNOWN_PHONE_API_URL = "https://secure.unknownphone.com/api/"
-    private const val UNKNOWN_PHONE_API_KEY = "d58d5bdaba8a80b2311957e9e4af885c"
+    private const val UNKNOWN_PHONE_API_URL = "https://secure.unknownphone.com/api2/"
+    private const val UNKNOWN_PHONE_API_KEY = "d7e07fec659645b12df76c94e378d47a"
 
     private const val TELLOWS_API_URL = "www.tellows.de"
     private const val TELLOWS_API_KEY = "koE5hjkOwbHnmcADqZuqqq2"
@@ -110,6 +110,7 @@ object ApiUtils {
             .add("comment", comment)
             .add("lang", lang)
             .add("_opt_rating", optRating)
+            .add("_opt_type_call", "_not_specified")
 
         val request = Request.Builder()
             .url(UNKNOWN_PHONE_API_URL)
